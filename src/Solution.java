@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 // -4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -30,10 +29,12 @@ class Solution {
         for (int i = 0; i < triplets.size(); i++) {
             List<Integer> list = triplets.get(i);
             int count = 0;
-            for (var num : list) {
-                if (num == a || num == b || num == c) count++;
+            if (list.contains(a) && list.contains(b) && list.contains(c)) {
+                for (var num: list){
+                    if (num == a || num == b || num == c) count++;
+                }
+                if(count ==3) res = false;
             }
-            if (count == 3) res = false;
         }
         return res;
     }
